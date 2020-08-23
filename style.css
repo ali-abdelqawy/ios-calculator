@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-black: #111;
+    --color-green: #0FA3B1;
+    --color-blue: #B5E2FA;
+    --color-isabelline: #F9F7F3;
+    --color-champagne: #EDDEA4;
+    --color-salmon: #F7A072;
+}
+
+body {
+    font-family: monospace;
+    padding: 0;
+    margin: 0;
+    background-color: var(--dark-color);
+}
