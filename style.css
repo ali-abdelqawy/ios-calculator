@@ -29,6 +29,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url("./WjRDn37.gif");
+    background-size: cover;
 }
 
 .page-title {
@@ -46,8 +48,9 @@ body {
     justify-content: space-between;
     width: 400px;
     height: 600px;
-    /* border: 1px red solid; */
+    background-color: var(--color-black);
     padding: 20px;
+    border-radius: 25px;
 }
 
 .row {
@@ -141,4 +144,10 @@ button {
 
 .box-50 button {
     border-radius: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        background-size: contain;
+    }
 }
