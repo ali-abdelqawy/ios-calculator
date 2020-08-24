@@ -6,8 +6,11 @@
     --color-black: #000;
     --color-white: #fff;
     --color-light-gray: #a6a6a6;
+    --color-light-gray-hover: #cccccc;
     --color-gray: #333333;
-    --color-orange: #ff8400;
+    --color-gray-hover: #464646;
+    --color-orange: #ff9201;
+    --color-orange-hover: #ffa32b;
     --output-font-size: 64px;
     --calc-font-size: 36px;
 }
@@ -54,7 +57,14 @@ body {
     justify-content: space-around;
     padding: 5px 0;
     /* border: 1px green solid; */
-    height: 16%;
+}
+
+.operations {
+    height: 80%;
+}
+
+.operations .row {
+    height: 20%;
 }
 
 .screen {
@@ -62,6 +72,7 @@ body {
     color: var(--color-white);
     padding-right: 25px;
     margin-bottom: 10px;
+    height: 20%;
     /*border: 1px yellow solid;*/
 }
 
@@ -102,9 +113,21 @@ button {
     color: var(--color-black);
 }
 
+.btn-bg-colored:hover {
+    background: var(--color-orange-hover);
+}
+
 .btn-bg-dark {
     background-color: var(--color-gray);
     color: var(--color-white);
+}
+
+.btn-bg-dark:hover {
+    background-color: var(--color-gray-hover);
+}
+
+.btn-bg-light:hover {
+    background-color: var(--color-light-gray-hover);
 }
 
 .btn-bg-colored {
