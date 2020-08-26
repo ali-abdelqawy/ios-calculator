@@ -29,8 +29,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url("./WjRDn37.gif");
-    background-size: cover;
 }
 
 .page-title {
@@ -93,10 +91,6 @@ body {
     font-size: var(--calc-font-size);
 }
 
-.box {
-    /* border: 1px hotpink solid;*/
-}
-
 .box-25 {
     width: 20%;
 }
@@ -146,8 +140,25 @@ button {
     border-radius: 50px;
 }
 
-@media only screen and (max-width: 600px) {
-    .container {
-        background-size: contain;
-    }
+#footer {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px var(--color-orange) solid;
+    color: var(--color-white);
+    font-size: 18px;
+}
+
+.footer-link {
+    text-decoration: none;
+}
+
+.footer-link:visited {
+    color: var(--color-white);
+}
+
+.footer-link:hover {
+    text-decoration: underline;
 }
