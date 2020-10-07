@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IOS Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/defaultStyleOverrides.css">
+    <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media-queries.css">
 </head>
 
 <body>
 
     <div class="container">
+        <h1 class="page-title">FRONTEND MASTERS Calculator</h1>
         <section class="calculator">
             <div class="screen">
                 <p class="output">0</p>
@@ -18,39 +22,37 @@
             <div class="calc-btns">
 
                 <div class="row">
-                    <div class="box box-25"><button class="btn-bg-light">C</button></div>
-                    <div class="box box-25"><button class="btn-bg-light">+/-</button></div>
-                    <div class="box box-25"><button class="btn-bg-light">←</button></div>
-                    <div class="box box-25"><button class="btn-bg-colored">÷</button></div>
+                    <button class="box-50">C</button>
+                    <button>←</button>
+                    <button>÷</button>
                 </div>
                 <div class="row">
-                    <div class="box box-25"><button class="btn-bg-dark">7</button></div>
-                    <div class="box box-25"><button class="btn-bg-dark">8</button></div>
-                    <div class="box box-25"><button class="btn-bg-dark">9</button></div>
-                    <div class="box box-25"><button class="btn-bg-colored">x</button></div>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button>x</button>
                 </div>
                 <div class="row">
-                    <div class="box box-25"><button class="btn-bg-dark">4</button></div>
-                    <div class="box box-25"><button class="btn-bg-dark">5</button></div>
-                    <div class="box box-25"><button class="btn-bg-dark">6</button></div>
-                    <div class="box box-25"><button class="btn-bg-colored">-</button></div>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button>-</button>
                 </div>
                 <div class="row">
-                    <div class="box box-25"><button class="btn-bg-dark">1</button></div>
-                    <div class="box box-25"><button class="btn-bg-dark">2</button></div>
-                    <div class="box box-25"><button class="btn-bg-dark">3</button></div>
-                    <div class="box box-25"><button class="btn-bg-colored">+</button></div>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>+</button>
                 </div>
                 <div class="row">
-                    <div class="box box-50"><button class="btn-bg-dark">0</button></div>
-                    <div class="box box-25"><button class="btn-bg-dark">.</button></div>
-                    <div class="box box-25"><button class="btn-bg-colored">=</button></div>
+                    <button class="box-50">0</button>
+                    <button>=</button>
                 </div>
             </div>
-
         </section>
         <section class="" id="footer">
-            <p>Made with ❤️ by <a target="_blank" href="https://github.com/alikhaledahmed" class="footer-link">Ali
+            <p>Made with <span style="color:antiquewhite">❤️</span> by <a target="_blank"
+                    href="https://github.com/alikhaledahmed" class="footer-link">Ali
                     Khaled</a>.</p>
         </section>
     </div>

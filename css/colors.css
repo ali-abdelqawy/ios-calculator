@@ -1,0 +1,10 @@
+:root {
+    --color-black: #000;
+    --color-white: #fff;
+    --color-light-gray: #a6a6a6;
+    --color-light-gray-hover: #cccccc;
+    --color-gray: #333333;
+    --color-gray-hover: #464646;
+    --color-orange: #ff9201;
+    --color-orange-hover: #ffa32b;
+}
