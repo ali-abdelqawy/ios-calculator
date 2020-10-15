@@ -24,7 +24,7 @@
     flex-direction: column;
     background-color: var(--color-black);
     padding: 20px;
-    border: 3px var(--color-orange) solid;
+    border: 2px var(--color-orange) solid;
     border-radius: 25px;
     font-size: 36px;
     margin: 50px 0;
@@ -37,8 +37,8 @@
     justify-content: flex-end;
     background-color: var(--color-black);
     color: var(--color-white);
-    margin-bottom: 10px;
-    padding: 0 5px 0 5px;
+    margin-bottom: 25px;
+    padding: 10px 15px 0 5px;
 }
 
 #output {
@@ -119,5 +119,5 @@
 }
 
 .footer-link:hover {
-    color: var(--color-orange-hover);
+    color: var(--color-orange);
 }
