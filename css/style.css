@@ -24,7 +24,7 @@
     flex-direction: column;
     background-color: var(--color-black);
     padding: 20px;
-    border: 2px var(--color-orange) solid;
+    border: 3px var(--color-orange) solid;
     border-radius: 25px;
     font-size: 36px;
     margin: 50px 0;
@@ -41,7 +41,7 @@
     padding: 0 5px 0 5px;
 }
 
-.output {
+#output {
     text-align: right;
     overflow: hidden;
     white-space: nowrap;
@@ -61,11 +61,16 @@
 }
 
 .row button {
-    background-color: var(--color-light-gray);
+    background-color: var(--color-gray);
+    color: var(--color-white);
     width: 25%;
     font-size: 0.8em;
     border: 5px var(--color-black) solid;
     border-radius: 100px;
+}
+
+.row button:hover {
+    background-color: var(--color-gray-hover);
 }
 
 .row button:last-child {
@@ -77,7 +82,12 @@
     background: var(--color-orange-hover);
 }
 
-.row button:hover {
+.row .light-btn {
+    background-color: var(--color-light-gray);
+    color: var(--color-white);
+}
+
+.row .light-btn:hover {
     background-color: var(--color-light-gray-hover);
 }
 

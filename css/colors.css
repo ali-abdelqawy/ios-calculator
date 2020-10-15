@@ -2,9 +2,9 @@
     --color-black: #000;
     --color-white: #fff;
     --color-light-gray: #a6a6a6;
-    --color-light-gray-hover: #cccccc;
+    --color-light-gray-hover: #d9d9d9;
     --color-gray: #333333;
-    --color-gray-hover: #464646;
-    --color-orange: #ff9201;
-    --color-orange-hover: #ffa32b;
+    --color-gray-hover: #737373;
+    --color-orange: #ff9f0a;
+    --color-orange-hover: #fac88d;
 }
