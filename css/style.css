@@ -65,8 +65,9 @@
     color: var(--color-white);
     width: 25%;
     font-size: 0.8em;
-    border: 5px var(--color-black) solid;
     border-radius: 100px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .row button:hover {
