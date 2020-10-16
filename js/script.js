@@ -1,6 +1,7 @@
 let num1 = 0,
 	num2 = 0,
-	operation = '';
+	operation = '',
+	equalClicked = false;
 
 const outputDivId = '#output';
 
@@ -32,6 +33,7 @@ $(document).ready(function () {
 					break;
 				case '=':
 					calculateResult();
+					equalClicked = true;
 					break;
 				default:
 					break;
@@ -54,8 +56,9 @@ function handleNumericButtons(buttonValue) {
 }
 
 function setScreenOutput(buttonValue) {
-	if ($(outputDivId)[0].innerHTML === '0') {
+	if ($(outputDivId)[0].innerHTML === '0' || equalClicked) {
 		$(outputDivId)[0].innerHTML = buttonValue;
+		equalClicked = false;
 	} else {
 		$(outputDivId)[0].innerHTML += buttonValue;
 	}
