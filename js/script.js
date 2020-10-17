@@ -1,7 +1,7 @@
 let num1 = '0',
 	num2 = '0',
 	operation = '',
-	equalClicked = false;
+	operationClicked = false;
 
 let screenOutput = $('#output')[0];
 
@@ -14,9 +14,9 @@ $('button').click(e => {
 	}
 });
 
-function handleNumber(buttonValue) {
-	setScreenOutput(buttonValue);
-	if (num1 === '0') {
+function handleNumber(number) {
+	setScreenOutput(number);
+	if (!operationClicked) {
 		num1 = screenOutput.innerHTML;
 	} else {
 		num2 = screenOutput.innerHTML;
@@ -24,9 +24,8 @@ function handleNumber(buttonValue) {
 }
 
 function setScreenOutput(buttonValue) {
-	if (screenOutput.innerHTML === '0' || equalClicked) {
+	if (screenOutput.innerHTML === '0') {
 		screenOutput.innerHTML = buttonValue;
-		equalClicked = false;
 	} else {
 		screenOutput.innerHTML += buttonValue;
 	}
@@ -60,12 +59,11 @@ function handleOperation(buttonValue) {
 			break;
 		case '=':
 			calculateResult();
-			// to remove the result from the screen to let the user enters a new number
-			equalClicked = true;
 			break;
 		default:
 			break;
 	}
+	operationClicked = true;
 }
 
 function clear() {
@@ -116,13 +114,8 @@ function sum() {
 function addDecimalPoint(buttonValue) {
 	if (!screenOutput.innerHTML.includes('.')) {
 		screenOutput.innerHTML += buttonValue;
-
-		if (num1 === '0') {
-			num1 = screenOutput.innerHTML;
-		} else {
-			num2 = screenOutput.innerHTML;
-		}
 	}
+	console.log('addDecimalPoint', num1, num2);
 	return;
 }
 
