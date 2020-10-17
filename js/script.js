@@ -164,6 +164,7 @@ function calculateResult() {
 		}
 		num1 = $(outputDivId)[0].innerHTML;
 		num2 = 0;
+		operation = '';
 	}
 	return;
 }
