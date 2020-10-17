@@ -1,5 +1,38 @@
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1550px) {
     .calculator {
-        width: 50%;
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .calculator {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    .calculator {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .calculator {
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 625px) {
+    .calculator {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .calculator {
+        font-size: 1em;
+    }
+    .page-title {
+        font-size: 1em;
     }
 }

@@ -5,14 +5,16 @@
     align-items: center;
     background-color: var(--color-black);
     height: 100vh;
-    padding-top: 25px;
+    padding-top: 40px;
+    background-image: url('../images/space-background.webp');
+    background-size: contain;
 }
 
 .page-title {
     color: var(--color-white);
     text-align: center;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 40px;
     letter-spacing: 15px;
 }
 
@@ -24,9 +26,9 @@
     flex-direction: column;
     background-color: var(--color-black);
     padding: 20px;
-    border: 2px var(--color-orange) solid;
+    border: 3px var(--color-gray) solid;
     border-radius: 25px;
-    font-size: 36px;
+    font-size: 2em;
     margin: 50px 0;
     max-height: 62vh;
     width: 22.5%;
@@ -105,10 +107,10 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    border-top: 2px var(--color-orange) solid;
-    border-left: 2px var(--color-orange) solid;
     color: var(--color-white);
     padding: 15px;
+    background-color: var(--color-black);
+    height: 80px;
 }
 
 .footer-link {

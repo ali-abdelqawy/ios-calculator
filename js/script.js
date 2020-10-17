@@ -4,7 +4,6 @@ let num1 = 0,
 	equalClicked = false;
 
 const outputDivId = '#output';
-
 $(document).ready(function () {
 	$('button').click(function () {
 		const buttonValue = this.innerHTML;
@@ -12,36 +11,7 @@ $(document).ready(function () {
 		if (isNumber(buttonValue)) {
 			handleNumericButtons(buttonValue);
 		} else {
-			switch (buttonValue) {
-				case 'C':
-					clear();
-					break;
-				case '←':
-					removeCharacter();
-					break;
-				case '÷':
-					divide();
-					break;
-				case 'x':
-					multiply();
-					break;
-				case '-':
-					subtract();
-					break;
-				case '+':
-					sum();
-					break;
-				case '.':
-					addDecimalPoint(buttonValue);
-					break;
-				case '=':
-					calculateResult();
-					// to remove the result from the screen to let the user enters a new number
-					equalClicked = true;
-					break;
-				default:
-					break;
-			}
+			handleOperationButtons(buttonValue);
 		}
 	});
 });
@@ -56,6 +26,42 @@ function handleNumericButtons(buttonValue) {
 		num1 = parseFloat($(outputDivId)[0].innerHTML);
 	} else {
 		num2 = parseFloat($(outputDivId)[0].innerHTML);
+	}
+}
+
+function handleOperationButtons(buttonValue) {
+	switch (buttonValue) {
+		case 'C':
+			clear();
+			break;
+		case '←':
+			removeCharacter();
+			break;
+		case '+/-':
+			toggleMinusSign();
+			break;
+		case '÷':
+			divide();
+			break;
+		case 'x':
+			multiply();
+			break;
+		case '-':
+			subtract();
+			break;
+		case '+':
+			sum();
+			break;
+		case '.':
+			addDecimalPoint(buttonValue);
+			break;
+		case '=':
+			calculateResult();
+			// to remove the result from the screen to let the user enters a new number
+			equalClicked = true;
+			break;
+		default:
+			break;
 	}
 }
 
@@ -114,6 +120,21 @@ function sum() {
 
 function addDecimalPoint(buttonValue) {
 	$(outputDivId)[0].innerHTML += buttonValue;
+
+	if (num1 === 0) {
+		num1 = $(outputDivId)[0].innerHTML;
+	} else {
+		num2 = $(outputDivId)[0].innerHTML;
+	}
+	return;
+}
+
+function toggleMinusSign() {
+	if ($(outputDivId)[0].innerHTML > 0) {
+		$(outputDivId)[0].innerHTML = '-' + $(outputDivId)[0].innerHTML;
+	} else {
+		$(outputDivId)[0].innerHTML = '-';
+	}
 
 	if (num1 === 0) {
 		num1 = $(outputDivId)[0].innerHTML;
