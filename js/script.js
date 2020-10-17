@@ -1,35 +1,38 @@
-let num1 = 0,
-	num2 = 0,
+let num1 = '0',
+	num2 = '0',
 	operation = '',
 	equalClicked = false;
 
-const outputDivId = '#output';
-$(document).ready(function () {
-	$('button').click(function () {
-		const buttonValue = this.innerHTML;
+let screenOutput = $('#output')[0];
 
-		if (isNumber(buttonValue)) {
-			handleNumericButtons(buttonValue);
-		} else {
-			handleOperationButtons(buttonValue);
-		}
-	});
+$('button').click(e => {
+	const buttonValue = e.target.innerText;
+	if (isNaN(parseFloat(buttonValue))) {
+		handleOperation(buttonValue);
+	} else {
+		handleNumber(buttonValue);
+	}
 });
 
-function isNumber(number) {
-	return !isNaN(parseFloat(number));
-}
-
-function handleNumericButtons(buttonValue) {
+function handleNumber(buttonValue) {
 	setScreenOutput(buttonValue);
-	if (num1 === 0) {
-		num1 = parseFloat($(outputDivId)[0].innerHTML);
+	if (num1 === '0') {
+		num1 = screenOutput.innerHTML;
 	} else {
-		num2 = parseFloat($(outputDivId)[0].innerHTML);
+		num2 = screenOutput.innerHTML;
 	}
 }
 
-function handleOperationButtons(buttonValue) {
+function setScreenOutput(buttonValue) {
+	if (screenOutput.innerHTML === '0' || equalClicked) {
+		screenOutput.innerHTML = buttonValue;
+		equalClicked = false;
+	} else {
+		screenOutput.innerHTML += buttonValue;
+	}
+}
+
+function handleOperation(buttonValue) {
 	switch (buttonValue) {
 		case 'C':
 			clear();
@@ -65,33 +68,25 @@ function handleOperationButtons(buttonValue) {
 	}
 }
 
-function setScreenOutput(buttonValue) {
-	if ($(outputDivId)[0].innerHTML === '0' || equalClicked) {
-		$(outputDivId)[0].innerHTML = buttonValue;
-		equalClicked = false;
-	} else {
-		$(outputDivId)[0].innerHTML += buttonValue;
-	}
-}
-
 function clear() {
-	(num1 = 0), (num2 = 0);
-	$(outputDivId)[0].innerHTML = '0';
+	num1 = '0';
+	num2 = '0';
+	screenOutput.innerHTML = '0';
 	return;
 }
 
 function removeCharacter() {
-	if ($(outputDivId)[0].innerHTML.length > 1) {
-		$(outputDivId)[0].innerHTML = $(outputDivId)[0].innerHTML.slice(0, -1);
+	if (screenOutput.innerHTML.length > 1) {
+		screenOutput.innerHTML = screenOutput.innerHTML.slice(0, -1);
 	} else {
-		$(outputDivId)[0].innerHTML = '0';
+		screenOutput.innerHTML = '0';
 	}
 	return;
 }
 
 function prepareCalculation() {
-	num1 = parseFloat($(outputDivId)[0].innerHTML);
-	$(outputDivId)[0].innerHTML = 0;
+	num1 = screenOutput.innerHTML;
+	screenOutput.innerHTML = 0;
 }
 
 function divide() {
@@ -119,50 +114,62 @@ function sum() {
 }
 
 function addDecimalPoint(buttonValue) {
-	$(outputDivId)[0].innerHTML += buttonValue;
+	if (!screenOutput.innerHTML.includes('.')) {
+		screenOutput.innerHTML += buttonValue;
 
-	if (num1 === 0) {
-		num1 = $(outputDivId)[0].innerHTML;
-	} else {
-		num2 = $(outputDivId)[0].innerHTML;
+		if (num1 === '0') {
+			num1 = screenOutput.innerHTML;
+		} else {
+			num2 = screenOutput.innerHTML;
+		}
 	}
 	return;
 }
 
 function toggleMinusSign() {
-	if ($(outputDivId)[0].innerHTML > 0) {
-		$(outputDivId)[0].innerHTML = '-' + $(outputDivId)[0].innerHTML;
+	if (!screenOutput.innerHTML.includes('-')) {
+		if (
+			screenOutput.innerHTML.length > 0 ||
+			screenOutput.innerHTML !== '0'
+		) {
+			screenOutput.innerHTML = '-' + screenOutput.innerHTML;
+		} else {
+			screenOutput.innerHTML = '-';
+		}
 	} else {
-		$(outputDivId)[0].innerHTML = '-';
+		screenOutput.innerHTML = screenOutput.innerHTML.substring(1);
 	}
 
-	if (num1 === 0) {
-		num1 = $(outputDivId)[0].innerHTML;
+	if (num1 === '0') {
+		num1 = screenOutput.innerHTML;
 	} else {
-		num2 = $(outputDivId)[0].innerHTML;
+		num2 = screenOutput.innerHTML;
 	}
 	return;
 }
 
 function calculateResult() {
-	if (num1 !== 0 && num2 !== 0 && operation.length) {
+	if (num1 !== '0' && num2 !== '0' && operation.length) {
+		num1 = parseFloat(num1);
+		num2 = parseFloat(num2);
+
 		switch (operation) {
 			case '/':
-				$(outputDivId)[0].innerHTML = (num1 / num2).toFixed(2);
+				screenOutput.innerHTML = (num1 / num2).toFixed(2);
 				break;
 			case '*':
-				$(outputDivId)[0].innerHTML = num1 * num2;
+				screenOutput.innerHTML = num1 * num2;
 				break;
 			case '-':
-				$(outputDivId)[0].innerHTML = num1 - num2;
+				screenOutput.innerHTML = num1 - num2;
 				break;
 			case '+':
-				$(outputDivId)[0].innerHTML = num1 + num2;
+				screenOutput.innerHTML = num1 + num2;
 				break;
 			default:
 				break;
 		}
-		num1 = $(outputDivId)[0].innerHTML;
+		num1 = screenOutput.innerHTML;
 		num2 = 0;
 		operation = '';
 	}
