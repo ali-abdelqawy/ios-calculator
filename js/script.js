@@ -31,8 +31,12 @@ $(document).ready(function () {
 				case '+':
 					sum();
 					break;
+				case '.':
+					addDecimalPoint(buttonValue);
+					break;
 				case '=':
 					calculateResult();
+					// to remove the result from the screen to let the user enters a new number
 					equalClicked = true;
 					break;
 				default:
@@ -43,15 +47,15 @@ $(document).ready(function () {
 });
 
 function isNumber(number) {
-	return !isNaN(parseInt(number));
+	return !isNaN(parseFloat(number));
 }
 
 function handleNumericButtons(buttonValue) {
 	setScreenOutput(buttonValue);
 	if (num1 === 0) {
-		num1 = parseInt($(outputDivId)[0].innerHTML);
+		num1 = parseFloat($(outputDivId)[0].innerHTML);
 	} else {
-		num2 = parseInt($(outputDivId)[0].innerHTML);
+		num2 = parseFloat($(outputDivId)[0].innerHTML);
 	}
 }
 
@@ -80,7 +84,7 @@ function removeCharacter() {
 }
 
 function prepareCalculation() {
-	num1 = parseInt($(outputDivId)[0].innerHTML);
+	num1 = parseFloat($(outputDivId)[0].innerHTML);
 	$(outputDivId)[0].innerHTML = 0;
 }
 
@@ -105,6 +109,17 @@ function subtract() {
 function sum() {
 	prepareCalculation();
 	operation = '+';
+	return;
+}
+
+function addDecimalPoint(buttonValue) {
+	$(outputDivId)[0].innerHTML += buttonValue;
+
+	if (num1 === 0) {
+		num1 = $(outputDivId)[0].innerHTML;
+	} else {
+		num2 = $(outputDivId)[0].innerHTML;
+	}
 	return;
 }
 
